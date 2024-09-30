@@ -1,3 +1,6 @@
+// app/layout.js
+
+import StyledComponentsRegistry from "../../lib/registry"; // Import the styled-components registry
 import localFont from "next/font/local";
 import "./globals.css";
 
@@ -21,7 +24,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        {children}
+        <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
       </body>
     </html>
   );
