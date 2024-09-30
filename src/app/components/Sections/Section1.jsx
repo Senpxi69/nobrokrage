@@ -58,7 +58,7 @@ function Section1() {
         <div className="col-md-6">
           <form>
             <FormWrapper>
-              <h3>Let's Get You Started...</h3>
+              <h3>Let&apos;s Get You Started...</h3>
               <h5>Basic Details</h5>
               <div className="d-flex flex-column mb-3">
                 <label>City</label>
