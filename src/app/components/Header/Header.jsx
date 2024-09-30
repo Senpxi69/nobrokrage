@@ -11,7 +11,7 @@ import {
 } from "react-bootstrap";
 import Image from "next/image";
 import ProfilePic from "../images/profile-round-1342-svgrepo-com.svg";
-import Logo from "/Users/HP/Desktop/nonroker/frontend/src/app/components/Images/no-brokrage.png";
+import Logo from "../images/no-brokrage.png";
 
 const Header = () => {
   const [showOffcanvas, setShowOffcanvas] = useState(false);
