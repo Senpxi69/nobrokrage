@@ -1,8 +1,15 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import styled from "styled-components";
 
 function Section2() {
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    // Set isMounted to true after the component has mounted
+    setIsMounted(true);
+  }, []);
+
   return (
     <OuterContainer className="my-5">
       <InnerContainer className="container">

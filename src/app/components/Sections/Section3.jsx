@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react"; // Import useEffect and useState
 import styled from "styled-components";
 import { Camera } from "lucide-react";
 import { useNavigate } from "react-router-dom";
@@ -237,12 +237,23 @@ const TextWrapper = styled.div`
 
 const Section3 = () => {
   const navigate = useNavigate();
+
+  // State to check if the component is mounted
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    // Set isMounted to true after the component has mounted
+    setIsMounted(true);
+  }, []);
+
   const handleClick = () => {
     navigate("/property-card");
   };
+
   const handlePreviousClick = () => {
     navigate("/");
   };
+
   return (
     <PageWrapper>
       <Container>
@@ -280,13 +291,15 @@ const Section3 = () => {
                 <Column>
                   <FormGroup>
                     <Label>Property Images</Label>
-                    <FileInput />
+                    {isMounted && <FileInput />}{" "}
+                    {/* Render file input only on the client */}
                   </FormGroup>
                 </Column>
                 <Column>
                   <FormGroup>
                     <Label>Images of the locality</Label>
-                    <FileInput />
+                    {isMounted && <FileInput />}{" "}
+                    {/* Render file input only on the client */}
                   </FormGroup>
                 </Column>
               </Row>
@@ -329,17 +342,12 @@ const Section3 = () => {
                 </SectionControls>
               </SectionContainer>
 
-              <FormGroup>
-                <Label>Property Videos</Label>
-                <FileInput />
-              </FormGroup>
-
               <ButtonGroup>
                 <PreviousLink onClick={handlePreviousClick}>
                   Previous
                 </PreviousLink>
                 <CenteredButton primary onClick={handleClick}>
-                  Save & Continue
+                  Next
                 </CenteredButton>
               </ButtonGroup>
             </form>
@@ -352,10 +360,9 @@ const Section3 = () => {
               Why you should choose <span>nobrokerage.com</span>
             </h3>
             <ul>
-              <li>Brokerage Free</li>
-              <li>Free Property Listing</li>
-              <li>Unlimited Access</li>
-              <li>Free Rent Agreement</li>
+              <li>Exposure to thousands of potential buyers and tenants</li>
+              <li>Seamless process from listing to closing</li>
+              <li>Professional guidance at every step</li>
             </ul>
           </TextWrapper>
         </SidebarWrapper>
